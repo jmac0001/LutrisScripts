@@ -1,0 +1,26 @@
+cat > .gitignore <<'EOF'
+# Downloaded/proprietary game files
+*.sh
+*.exe
+*.bin
+*.zip
+*.7z
+*.iso
+downloads/
+
+# Logs and private local data
+*.log
+*.tmp
+.cache/
+.env
+.env.*
+
+# Editor/system files
+*.swp
+*.swo
+*~
+*.bak
+.DS_Store
+.vscode/
+.idea/
+EOF

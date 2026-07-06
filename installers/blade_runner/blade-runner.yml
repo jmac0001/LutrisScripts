@@ -1,0 +1,37 @@
+name: "Blade Runner"
+game_slug: blade-runner
+version: GOG Linux
+slug: blade-runner-gog-linux
+runner: scummvm
+
+script:
+  files:
+    - gogsetup: N/A:Please select the GOG Linux installer file blade_runner_1_0_svm_src_34722.sh
+    - subtitles: https://downloads.scummvm.org/frs/extras/Blade%20Runner/Blade_Runner_Subtitles-v9.zip
+
+  game:
+    # The native GOG Linux installer extracts the game data into game/data.
+    # Lutris' ScummVM runner should launch directly from that directory.
+    game_id: bladerunner
+    path: $GAMEDIR/game/data
+    subtitles: true
+
+  installer:
+    - extract:
+        dst: $CACHE/gog
+        file: gogsetup
+        format: zip
+
+    - merge:
+        dst: $GAMEDIR
+        src: $CACHE/gog/data/noarch/
+
+    - extract:
+        dst: $GAMEDIR/game/data
+        file: subtitles
+        format: zip
+
+  scummvm:
+    aspect: true
+    fullscreen: true
+    subtitles: true
