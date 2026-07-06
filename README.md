@@ -41,3 +41,7 @@ Using the updated installer:
 2. The installer extracts successfully with `format: zip`.
 3. Lutris registers the game with the ScummVM runner.
 4. Blade Runner launches successfully from `$GAMEDIR/game/data`.
+
+## Status
+
+This installer has been validated locally and is awaiting community review before submission upstream

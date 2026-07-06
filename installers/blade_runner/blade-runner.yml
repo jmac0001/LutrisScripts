@@ -32,6 +32,6 @@ script:
         format: zip
 
   scummvm:
-    aspect: true
-    fullscreen: true
+    aspect: null
+    fullscreen: null
     subtitles: true
