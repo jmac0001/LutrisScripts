@@ -1,26 +1,34 @@
-cat > .gitignore <<'EOF'
-# Downloaded/proprietary game files
-*.sh
-*.exe
-*.bin
-*.zip
-*.7z
-*.iso
-downloads/
-
-# Logs and private local data
-*.log
-*.tmp
-.cache/
-.env
-.env.*
-
-# Editor/system files
+# OS/editor
+.DS_Store
+Thumbs.db
 *.swp
 *.swo
 *~
-*.bak
-.DS_Store
-.vscode/
-.idea/
-EOF
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs/temp
+*.log
+*.tmp
+temp*.txt
+
+# Backup folders
+*.bak/
+scripts.bak/
+
+# Game/media files - do not commit copyrighted media
+*.cue
+*.bin
+*.iso
+*.img
+*.cdr
+*.mdf
+*.mds
+
+# Local installed game folders
+FXFIGHT/
+cd/
