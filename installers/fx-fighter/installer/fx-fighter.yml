@@ -1,0 +1,46 @@
+name: FX Fighter
+game_slug: fx-fighter
+slug: fx-fighter-retail
+version: Retail CD-ROM
+runner: dosbox
+
+script:
+  files:
+    - cue_file: "N/A:Please select FX_FIGHTER.CUE"
+
+  game:
+    main_file: "$GAMEDIR/dosbox.conf"
+
+  installer:
+    - execute:
+        description: "Install FX Fighter"
+        command: |
+          set -ex
+          LOG="$GAMEDIR/install-debug.log"
+
+          {
+            echo "GAMEDIR=$GAMEDIR"
+            echo "SCRIPTDIR=$SCRIPTDIR"
+            echo "CACHE=$CACHE"
+            echo "PWD=$(pwd)"
+            echo "cue_file=$cue_file"
+            echo "Literal cue_file=cue_file"
+            echo "Listing cache:"
+            find "$CACHE" -maxdepth 3 -type f -o -type d
+
+            python3 "$SCRIPTDIR/../scripts/install_fxfighter.py" \
+              --cue "$cue_file" \
+              --install-root "$GAMEDIR" \
+              --overwrite
+
+            echo "Install result:"
+            find "$GAMEDIR" -maxdepth 3 -type f | sort
+          } > "$LOG" 2>&1
+
+  install_complete_text: |
+    FX Fighter installation complete.
+
+    The original CUE/BIN image is required at runtime because
+    FX Fighter performs a CD-ROM check.
+
+    DOSBox configuration has been generated automatically.
